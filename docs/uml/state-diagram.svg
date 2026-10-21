@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="320" viewBox="0 0 880 320" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#334155"/>
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <text x="20" y="30" font-size="18" font-weight="bold" fill="#1e293b">TierMart — Membership State Machine (COE 528)</text>
+
+  <!-- start dot -->
+  <circle cx="35" cy="150" r="7" fill="#1e293b"/>
+  <line x1="42" y1="150" x2="78" y2="150" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- states -->
+  <g>
+    <rect x="80"  y="120" width="150" height="62" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <text x="155" y="148" text-anchor="middle" font-size="16" font-weight="bold" fill="#0f172a">Basic</text>
+    <text x="155" y="168" text-anchor="middle" font-size="13" fill="#475569">0% off</text>
+
+    <rect x="290" y="120" width="150" height="62" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+    <text x="365" y="148" text-anchor="middle" font-size="16" font-weight="bold" fill="#312e81">Silver</text>
+    <text x="365" y="168" text-anchor="middle" font-size="13" fill="#475569">5% off</text>
+
+    <rect x="500" y="120" width="150" height="62" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+    <text x="575" y="148" text-anchor="middle" font-size="16" font-weight="bold" fill="#713f12">Gold</text>
+    <text x="575" y="168" text-anchor="middle" font-size="13" fill="#475569">10% off</text>
+
+    <rect x="710" y="120" width="150" height="62" rx="10" fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+    <text x="785" y="148" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e1b4b">Platinum</text>
+    <text x="785" y="168" text-anchor="middle" font-size="13" fill="#475569">15% off</text>
+  </g>
+
+  <!-- promote arrows (top) -->
+  <g stroke="#334155" stroke-width="2" fill="none">
+    <path d="M230,135 L290,135" marker-end="url(#arrow)"/>
+    <path d="M440,135 L500,135" marker-end="url(#arrow)"/>
+    <path d="M650,135 L710,135" marker-end="url(#arrow)"/>
+  </g>
+  <g font-size="12" fill="#334155" text-anchor="middle">
+    <text x="260" y="126">≥ $100</text>
+    <text x="470" y="126">≥ $500</text>
+    <text x="680" y="126">≥ $1000</text>
+  </g>
+
+  <!-- demote arrows (bottom) -->
+  <g stroke="#b45309" stroke-width="2" fill="none">
+    <path d="M290,167 L230,167" marker-end="url(#arrowBack)"/>
+    <path d="M500,167 L440,167" marker-end="url(#arrowBack)"/>
+    <path d="M710,167 L650,167" marker-end="url(#arrowBack)"/>
+  </g>
+  <g font-size="12" fill="#b45309" text-anchor="middle">
+    <text x="260" y="196">&lt; $100</text>
+    <text x="470" y="196">&lt; $500</text>
+    <text x="680" y="196">&lt; $1000</text>
+  </g>
+
+  <text x="20" y="250" font-size="13" fill="#334155">Promotions (black) and demotions (orange) are both driven by lifetime spend.</text>
+  <text x="20" y="272" font-size="13" fill="#334155">Each box is one class implementing MembershipState; the Customer delegates discount() and review() to its current state.</text>
+  <text x="20" y="294" font-size="13" fill="#334155">A single large purchase can skip tiers — the Customer re-reviews until the tier settles.</text>
+</svg>
